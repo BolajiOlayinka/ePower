@@ -5,6 +5,7 @@ const style={
     textAlign:"center",
     padding:"2rem 0rem",
     color:"#EAEAEA",
+    marginBottom:"1.5rem",
 }
 const headingFont={
     fontSize:"2em",

@@ -5,6 +5,7 @@ const style={
     textAlign:"center",
     padding:"2rem 0rem",
     color:"#EAEAEA",
+    marginTop:"1.5rem",
 }
 export default function Footer() {
     return (

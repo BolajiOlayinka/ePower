@@ -1,0 +1,32 @@
+.container{
+    width:80%;
+}
+.card{
+    text-align:center;
+    margin:2em 0em;
+    box-shadow: 0px 3px 9px 
+    rgba(251, 148, 148, 0.3), 0px 1px 20px rgba(0, 0, 0, 0.1);
+
+   
+    
+}
+.card img{
+  display: block;
+  width: 100%;
+  height: 18rem;
+}
+.card-title{
+   padding: 1em 0.5em;
+}
+.btnContainer{
+   text-align:center;
+}
+.btn{
+    background-color:#097890;
+    color:#EAEAEA;
+    width:8rem;
+    padding:0.5rem;
+    margin:1.5rem;
+    border-radius:1.5rem;
+
+}
