@@ -8,7 +8,7 @@ import Card from './Card';
 
 
 
-export default class App extends Component {
+ class App extends Component {
 
   constructor (){
     super();
@@ -42,8 +42,8 @@ export default class App extends Component {
       );
     })
    
-  }
+  };
 
 
-
+  export default App;
 
