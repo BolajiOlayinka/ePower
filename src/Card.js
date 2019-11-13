@@ -9,56 +9,11 @@ const Card = props => {
       <div className="container">
         <div className="row">
           <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
+            <div className="card">{props.cardImage}
+              {/* <img src={img} alt="images" /> */}
               <div className="card-title">
-                <h4>John Doe Doe Doe</h4>
-                <p> skllmbdvxn sjvn jsznv jk</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
-              <div className="card-title">
-                <h4>John Doe</h4>
-                <p> skllmbdvxn sjvn jsznv jk</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
-              <div className="card-title">
-                <h5>John Doe</h5>
-                <p> skllmbdvxn sjvn jsznv jk</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
-              <div className="card-title">
-                <h5>John Doe</h5>
-                <p> skllmbdvxn sjvn jsznv jk</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
-              <div className="card-title">
-                <h5>John Doe</h5>
-                <p> skllmbdvxn sjvn jsznv jk</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">
-              <img src={img} alt="images" />
-              <div className="card-title">
-                <h5>John Doe</h5>
-                <p> skllmbdvxn sjvn jsznv jk</p>
+                <h4>{props.cardTitle}</h4>
+                <p>{props.cardPara}</p>
               </div>
             </div>
           </div>
