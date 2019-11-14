@@ -13,10 +13,21 @@
 .card img{
   display: block;
   width: 100%;
-  height: 18rem;
+  height: 15rem;
 }
 .card-title{
    padding: 1em 0.5em;
+   height:15rem;
+}
+.card-title h4{
+    font-size:1em;
+    font-weight:bold;
+    height:2em;
+}
+.card-title p{
+    font-size:0.9em;
+    padding:0.3em;
+    text-align:justify;
 }
 .btnContainer{
    text-align:center;

@@ -1,49 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
-import Header from './Header';
-import Footer from './Footer';
-import Body from './Body';
-import Card from './Card';
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import Body from "./Body";
+import CardList from "./CardList";
 
-
-
- class App extends Component {
-
-  constructor (){
-    super();
-    this.state={
-      blogs:[]
-    }
-  }
-  componentDidMount(){
-    let blogsUrl= "https://epower.ng/wp-json/wp/v2/posts";
-    fetch (blogsUrl)
-    .then(response => response.json())
-    .then(response => {
-      this.setState({
-        blogs:response
-      })
-    })
-  }
-
+export default class App extends Component {
   render() {
-    let blogs=this.state.blogs.map(( blog, index)=>{
+    return (
+      <React.Fragment>
       
-      return (
-        <React.Fragment>
-        <Header/>
-        {/* <Body/> */}
-        <Card
-          cardImage={<img key={index} src={blog.excerpt.featured_image_thmbnail} alt="images"/>}
-        />
-        <Footer/>
-        </React.Fragment>
-      );
-    })
-   
-  };
-
-
-  export default App;
-
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={CardList} />
+            <Route exact path="/blog/:id" component={Body} />
+          </Switch>
+        </BrowserRouter>
+        <Footer />
+      </React.Fragment>
+    );
+  }
+}

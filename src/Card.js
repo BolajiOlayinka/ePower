@@ -1,15 +1,18 @@
 import React from "react";
 import "./Card.css";
+import  {Link} from 'react-router-dom';
 import img from "./image/photography.png";
 import data from './data.json';
 
 const Card = props => {
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col-9 mx-auto col-md-6 col-lg-4">
-            <div className="card">{props.cardImage}
+    
+      
+          <div className="col-12 col-md-6 col-lg-4">
+            <div className="card">
+            <Link to = {props.cardLink} >
+            {props.cardImage}
+            </Link>
               {/* <img src={img} alt="images" /> */}
               <div className="card-title">
                 <h4>{props.cardTitle}</h4>
@@ -17,18 +20,12 @@ const Card = props => {
               </div>
             </div>
           </div>
-          
-      </div>
-      <div className="btnContainer">
-            <button className="btn">
-                Previous
-            </button>
-            <button className="btn">
-              Next
-            </button>
-          </div>
-        </div>
-    </div>
+         
+     
+     
+     
+    
+       
   );
 };
 

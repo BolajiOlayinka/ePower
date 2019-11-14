@@ -13,12 +13,12 @@ const headingFont={
 const bodyFont={
     fontSize:"1.2em",
 }
-export default function Header() {
+export default function Header(props) {
     return (
         <div>
             <div style={style}>
-                <h2 style={headingFont} id="">Top 10 Reasons Why Your Website Needs A Blog</h2>
-                <h6 style={bodyFont} id="">Published on April 26, 2019</h6>
+                <h2 style={headingFont} id="">{props.headerFont}</h2>
+                <h6 style={bodyFont} id="">{props.headerTime}</h6>
             </div>
 
         </div>

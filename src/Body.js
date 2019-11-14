@@ -1,5 +1,8 @@
-import React from 'react';
-import image from './image/photography.png';
+import React, { Component } from 'react';
+import Header from './Header';
+import renderHtml from 'react-render-html';
+import axios from 'axios';
+
 
 const style={
     textAlign:"center",
@@ -10,32 +13,58 @@ const img={
 width:"100%",
   padding:"1em 0em",
 }
-const para={
+const parag={
     textAlign:"justify",
+    
 }
-export default function Body() {
-    return (
-        <div>
-            <div style={style}>
-                <img src={image} style={img} alt="imag"/>
-                <p style={para}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Quisque sapien velit, aliquet eget commodo nec, auctor a sapien. 
-                Nam eu neque vulputate diam rhoncus faucibus. Curabitur quis varius 
-                libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Aliquam placerat sem at mauris suscipit porta. Cras metus velit, 
-                elementum sed pellentesque a, pharetra eu eros. Etiam facilisis 
-                placerat euismod. Nam faucibus neque arcu, quis accumsan leo tincidunt varius. 
-                In vel diam enim. Sed id ultrices ligula. Maecenas at urna arcu. Sed quis nulla 
-                sapien. Nam felis mauris, tincidunt at convallis id, tempor molestie libero. 
-                Quisque viverra sollicitudin nisl sit amet hendrerit. Etiam sit amet arcu sem. 
-                Morbi eu nibh condimentum, interdum est quis, tempor nisi. Vivamus convallis 
-                erat in pharetra elementum. Phasellus metus neque, commodo vitae venenatis sed, 
-                pellentesque non purus. Pellentesque egestas convallis suscipit. Ut luctus, leo 
-                quis porta vulputate, purus purus pellentesque ex, id consequat mi nisl quis eros. 
-                Integer ornare libero quis risus fermentum consequat. Mauris pharetra odio sagittis, 
-                vulputate magna at, lobortis nulla. Proin efficitur, nisi vel finibus elementum, orci 
-                sem volutpat eros, eget ultrices velit mi.</p>
+
+
+export default class Body extends Component {
+    constructor (props){
+        super(props);
+        this.state={
+            loading:false,
+          blogs:[],
+          error: ''
+        }
+      }
+      componentDidMount(){
+          console.log(this.props.id);
+        let blogsUrl= "https://epower.ng/wp-json/wp/v2/posts";
+        this.setState({loading:true}, () =>{
+            axios.get(`${blogsUrl}`)
+            .then(res =>{
+                this.setState( {loading:false, blogs:res.data})
+            })
+            .catch ( error => this.setState( {loading:false, error:error.response.data}))
+        })
+        
+      }
+    render() {
+
+        // console.log('state', this.state);
+        //  const {blogs }=this.state;
+        let blogs=this.state.blogs.map((blog, index)=>{
+        return (
+            <div>
+            <Header
+                headerFont="Ten Reasons Why Your Website Needs A Blog"
+            />
+                <div style={style}>
+               <img style={img} key={index} src={blog.featured_image} alt="images"/> 
+                    <div style={parag}>{ renderHtml (blog.content.rendered) }</div>
+                </div>
             </div>
-        </div>
-    )
+        );
+    })
+    
+    return (
+        [blogs[0]]
+        ) 
 }
+}
+
+
+
+
+
